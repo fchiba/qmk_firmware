@@ -9,6 +9,27 @@
 
 #define EPRM M(1) // Macro 1: Reset EEPROM
 
+#define KC_JDQT     LSFT(KC_2)
+#define KC_JAMPR    LSFT(KC_6)
+#define KC_JQUOT    LSFT(KC_7)
+#define KC_JLPRN    LSFT(KC_8)
+#define KC_JRPRN    LSFT(KC_9)
+#define KC_JEQL     LSFT(KC_MINS)
+#define KC_JCIRC    KC_EQL
+#define KC_JTILD    LSFT(KC_JCIRC)
+#define KC_JBSLS    KC_JYEN
+#define KC_JPIPE    LSFT(KC_JBSLS)
+#define KC_JAT      KC_LBRC
+#define KC_JGRAVE   LSFT(KC_JAT)
+#define KC_JLBRC    KC_RBRC
+#define KC_JLCBR    LSFT(KC_JLBRC)
+#define KC_JSCLN    KC_SCLN
+#define KC_JPLUS    LSFT(KC_JSCLN)
+#define KC_JCOLN    KC_QUOT
+#define KC_JASTR    LSFT(KC_JCOLN)
+#define KC_JRBRC    KC_BSLASH
+#define KC_JRCBR    LSFT(KC_JRBRC)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
@@ -35,23 +56,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_EQL,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_LEFT,
-        KC_DELT,        KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   TG(SYMB),
-        KC_BSPC,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
-        KC_LSFT,        CTL_T(KC_Z),  KC_X,   KC_C,   KC_V,   KC_B,   ALL_T(KC_NO),
-        LT(SYMB,KC_GRV),KC_QUOT,      LALT(KC_LSFT),  KC_LEFT,KC_RGHT,
-                                              ALT_T(KC_APP),  KC_LGUI,
-                                                              KC_HOME,
-                                               KC_SPC,KC_BSPC,KC_END,
+        KC_ESC,          KC_1,          KC_2,     KC_3,   KC_4,   KC_5,   KC_NO,
+        KC_TAB,          KC_Q,          KC_W,     KC_E,   KC_R,   KC_T,   KC_Y,
+        KC_LCTRL,        LT(SYMB,KC_A), KC_S,     KC_D,   KC_F,   KC_G,
+        KC_LSFT,         LT(MDIA,KC_Z), KC_X,     KC_C,   KC_V,   KC_B,   KC_NO,
+        KC_NO,           KC_LALT,       KC_LGUI,  KC_NO,  KC_NO,
+                                                  ALT_T(KC_APP),  KC_NO,
+                                                                  KC_NO,
+                                                  KC_SPC,KC_BSPC, KC_LANG2,
         // right hand
-             KC_RGHT,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             KC_MINS,
-             TG(SYMB),    KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,             KC_BSLS,
-                          KC_H,   KC_J,   KC_K,   KC_L,   LT(MDIA, KC_SCLN),GUI_T(KC_QUOT),
-             MEH_T(KC_NO),KC_N,   KC_M,   KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_RSFT,
-                                  KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC,          KC_FN1,
-             KC_LALT,        CTL_T(KC_ESC),
-             KC_PGUP,
-             KC_PGDN,KC_TAB, KC_ENT
+             KC_NO,           KC_6,   KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,
+             LT(KC_FN2,KC_T), KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,     KC_JAT,
+                              KC_H,   KC_J,    KC_K,    KC_L,    KC_JSCLN, KC_JCOLN,
+             KC_NO,           KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_UP,    KC_RSFT,
+                                      KC_SLSH, KC_INT1, KC_DOWN, KC_DOWN,  KC_RIGHT,
+             KC_NO,             CTL_T(KC_ESC),
+             KC_NO,
+             KC_LANG1, KC_DELT, KC_ENT
     ),
 /* Keymap 1: Symbol Layer
  *
@@ -77,20 +98,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // SYMBOLS
 [SYMB] = KEYMAP(
        // left hand
-       M(0),   KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
-       KC_TRNS,KC_EXLM,KC_AT,  KC_LCBR,KC_RCBR,KC_PIPE,KC_TRNS,
-       KC_TRNS,KC_HASH,KC_DLR, KC_LPRN,KC_RPRN,KC_GRV,
-       KC_TRNS,KC_PERC,KC_CIRC,KC_LBRC,KC_RBRC,KC_TILD,KC_TRNS,
+       KC_TRNS,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
           EPRM,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
                                        KC_TRNS,KC_TRNS,
                                                KC_TRNS,
                                KC_TRNS,KC_TRNS,KC_TRNS,
        // right hand
-       KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F11,
-       KC_TRNS, KC_UP,   KC_7,   KC_8,    KC_9,    KC_ASTR, KC_F12,
-                KC_DOWN, KC_4,   KC_5,    KC_6,    KC_PLUS, KC_TRNS,
-       KC_TRNS, KC_AMPR, KC_1,   KC_2,    KC_3,    KC_BSLS, KC_TRNS,
-                         KC_TRNS,KC_DOT,  KC_0,    KC_EQL,  KC_TRNS,
+       KC_F7,   KC_F8,   KC_F9,     KC_F10,   KC_F11,   KC_F12,   KC_TRNS,
+       KC_TRNS, KC_DLR,  KC_JGRAVE, KC_JCIRC, KC_JTILD, KC_JYEN,  KC_JPIPE,
+                KC_HASH, KC_JQUOT,  KC_PERC,  KC_JLCBR, KC_JLBRC, S(LGUI(KC_JLBRC)),
+       KC_TRNS, KC_EXLM, KC_JDQT,   KC_JAMPR, KC_JRCBR, KC_JRBRC, S(LGUI(KC_JRBRC)),
+                         KC_MINS,   KC_JEQL,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
@@ -118,28 +139,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // MEDIA AND MOUSE
 [MDIA] = KEYMAP(
+       KC_TRNS, KC_MPRV, KC_MPLY, KC_MPLY, KC_MUTE, KC_VOLD, KC_VOLU,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN2,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                            KC_TRNS, KC_TRNS,
                                                     KC_TRNS,
                                   KC_TRNS, KC_TRNS, KC_TRNS,
     // right hand
        KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MPLY,
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_MPRV, KC_MNXT, KC_TRNS, KC_TRNS,
-                          KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_WBAK
+       KC_TRNS, KC_TRNS, KC_TRNS
 ),
 };
 
 const uint16_t PROGMEM fn_actions[] = {
-    [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
+    [1] = ACTION_LAYER_TAP_TOGGLE(SYMB),               // FN1 - Momentary Layer 1 (Symbols)
+    [2] = ACTION_LAYER_TAP_TOGGLE(MDIA)                // FN1 - Momentary Layer 2 (Media)
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
